@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5F0E8;
+  --warm-white: #FAF7F2;
+  --deep-brown: #2C1810;
+  --warm-brown: #6B3F2A;
+  --amber: #C17D3C;
+  --soft-gold: #D4A853;
+  --muted-rose: #C4957A;
+  --dark-charcoal: #1A1A1A;
+  --soft-shadow: rgba(44, 24, 16, 0.08);
+}
+
+body {
+  background-color: #0D0A07;
+  color: #E8D5B7;
+  font-family: 'Lora', Georgia, serif;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture overlay */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 10;
+}
+
+/* Warm gradient background */
+.warm-bg {
+  background-color: #FAF7F2;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(212, 168, 83, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(196, 149, 122, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(245, 240, 232, 0.5) 0%, #FAF7F2 100%);
+}
+
+/* Animations - Soft and Slow */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Candle flame subtle flicker animation */
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); filter: brightness(1); }
+  20% { transform: scale(0.95) rotate(1deg); filter: brightness(0.9); }
+  40% { transform: scale(1.05) rotate(-0.5deg); filter: brightness(1.1); }
+  60% { transform: scale(0.98) rotate(0.5deg); filter: brightness(0.95); }
+  80% { transform: scale(1.02) rotate(-1deg); filter: brightness(1.05); }
+}
+
+.candle-flicker {
+  animation: flicker 2.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4957A;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6B3F2A;
+}
+
+/* Utility layout styles */
+.input-warm {
+  background-color: #FAF7F2;
+  border: 1px solid #E6DEC9;
+  color: #2C1810;
+  font-family: 'Lora', Georgia, serif;
+  transition: all 0.3s ease;
+}
+
+.input-warm:focus {
+  outline: none;
+  border-color: #D4A853;
+  box-shadow: 0 0 0 3px rgba(193, 125, 60, 0.15);
+  background-color: #ffffff;
+}
+
+.btn-premium {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-premium:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 24, 16, 0.1);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
